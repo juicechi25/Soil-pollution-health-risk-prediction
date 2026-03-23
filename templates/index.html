@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NSW Health Risk Predictor</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .card {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    h2 {
+      margin-bottom: 30px;
+      color: #2a507a;
+      text-align: center;
+    }
+    label {
+      margin-top: 15px;
+      font-weight: 500;
+      display: block;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fafafa;
+    }
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #2a507a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #1e3b5a;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #d13438;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>🌏 NSW Health Risk Predictor</h2>
+
+    
+    <label for="regionInput">📍 Region:</label>
+    <input list="regions" id="regionInput" name="region" placeholder="Type to search region" />
+    <datalist id="regions">
+      <option value="Albury">
+      <option value="Armidale Regional">
+      <option value="Ballina">
+      <option value="Balranald">
+      <option value="Bathurst Regional">
+      <option value="Bayside">
+      <option value="Bega Valley">
+      <option value="Bellingen">
+      <option value="Berrigan">
+      <option value="Blacktown">
+      <option value="Bland">
+      <option value="Blayney">
+      <option value="Blue Mountains">
+      <option value="Bogan">
+      <option value="Bourke">
+      <option value="Brewarrina">
+      <option value="Broken Hill">
+      <option value="Burwood">
+      <option value="Byron">
+      <option value="Cabonne">
+      <option value="Camden">
+      <option value="Campbelltown">
+      <option value="Carrathool">
+      <option value="Central Coast">
+      <option value="Central Darling">
+      <option value="Cessnock">
+      <option value="Canada Bay">
+      <option value="Canterbury Bankstown">
+      <option value="Parramatta">
+      <option value="Ryde">
+      <option value="Sydney">
+      <option value="Clarence Valley">
+      <option value="Cobar">
+      <option value="Coffs Harbour">
+      <option value="Coolamon">
+      <option value="Coonamble">
+      <option value="Cootamundra-Gundagai">
+      <option value="Cowra">
+      <option value="Cumberland">
+      <option value="Dubbo Regional">
+      <option value="Dungog">
+      <option value="Edward River">
+      <option value="Eurobodalla">
+      <option value="Fairfield">
+      <option value="Federation">
+      <option value="Forbes">
+      <option value="Georges River">
+      <option value="Gilgandra">
+      <option value="Glen Innes Severn">
+      <option value="Goulburn Mulwaree">
+      <option value="Greater Hume">
+      <option value="Griffith">
+      <option value="Gunnedah">
+      <option value="Gwydir">
+      <option value="Hawkesbury">
+      <option value="Hay">
+      <option value="Hilltops">
+      <option value="Hornsby">
+      <option value="Hunter's Hill">
+      <option value="Inner West">
+      <option value="Inverell">
+      <option value="Junee">
+      <option value="Kempsey">
+      <option value="Kiama Municipal">
+      <option value="Ku-ring-gai">
+      <option value="Kyogle">
+      <option value="Lachlan">
+      <option value="Lake Macquarie">
+      <option value="Lane Cove">
+      <option value="Leeton">
+      <option value="Lismore">
+      <option value="Lithgow">
+      <option value="Liverpool">
+      <option value="Liverpool Plains">
+      <option value="Lockhart">
+      <option value="Maitland">
+      <option value="MidCoast">
+      <option value="Mid-Western Regional">
+      <option value="Moree Plains ">
+      <option value="Mosman Municipal">
+      <option value="Murray River">
+      <option value="Murrumbidgee">
+      <option value="Muswellbrook ">
+      <option value="Nambucca Valley">
+      <option value="Narrabri ">
+      <option value="Narrandera ">
+      <option value="Narromine ">
+      <option value="Newcastle ">
+      <option value="North Sydney">
+      <option value="Northern Beaches">
+      <option value="Oberon">
+      <option value="Orange">
+      <option value="Parkes">
+      <option value="Penrith">
+      <option value="Port Macquarie-Hastings">
+      <option value="Port Stephens">
+      <option value="Queanbeyan-Palerang Regional">
+      <option value="Randwick">
+      <option value="Richmond Valley">
+      <option value="Shellharbour">
+      <option value="Shoalhaven">
+      <option value="Singleton">
+      <option value="Snowy Monaro Regional">
+      <option value="Snowy Valleys">
+      <option value="Strathfield">
+      <option value="Sutherland">
+      <option value="Tamworth Regional">
+      <option value="Temora">
+      <option value="Tenterfield">
+      <option value="The Hills">
+      <option value="Tweed">
+      <option value="Upper Lachlan">
+      <option value="Upper Hunter">
+      <option value="Uralla">
+      <option value="Wagga Wagga">
+      <option value="Walcha">
+      <option value="Walgett">
+      <option value="Warren">
+      <option value="Warrumbungle">
+      <option value="Waverley">
+      <option value="Weddin">
+      <option value="Wentworth">
+      <option value="Willoughby">
+      <option value="Wingecarribee">
+      <option value="Wollondilly">
+      <option value="Wollongong">
+      <option value="Woollahra Municipal">
+      <option value="Yass Valley">
+    </datalist>
+
+    <label for="pollutantType">☣️ Pollutant Type:</label>
+    <select id="pollutantType">
+      <option value="" disabled selected>Select pollutant</option>
+      <option value="Lead">Lead</option>
+      <option value="Arsenic">Arsenic</option>
+      <option value="Cadmium">Cadmium</option>
+      <option value="Mercury">Mercury</option>
+      <option value="Zinc">Zinc</option>
+    </select>
+
+    <label for="industry">🏭 Nearby Industry:</label>
+    <select id="industry">
+      <option value="" disabled selected>Select industry</option>
+      <option value="Chemical">Chemical</option>
+      <option value="Mining">Mining</option>
+      <option value="Agriculture">Agriculture</option>
+      <option value="Manufacturing">Manufacturing</option>
+      <option value="None">None</option>
+    </select>
+
+    <button onclick="sendData()">🔍 Predict Health Risk</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
