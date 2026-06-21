@@ -1,5 +1,0 @@
-knn_env/
-venv/
-__pycache__/
-*.pkl
-*.zip
