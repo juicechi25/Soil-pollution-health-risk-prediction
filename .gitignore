@@ -1,0 +1,5 @@
+venv/
+knn_env/
+__pycache__/
+.DS_Store
+knn_soil_model.pkl
