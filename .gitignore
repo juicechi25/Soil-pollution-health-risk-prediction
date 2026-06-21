@@ -3,3 +3,8 @@ knn_env/
 __pycache__/
 .DS_Store
 knn_soil_model.pkl
+rf_soil_model.pkl
+wnn_soil_model.pkl
+stack_model.pkl.zip
+*.ipynb
+*.csv
