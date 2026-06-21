@@ -53,39 +53,67 @@ project/
 6. The app returns the predicted class, confidence score, and probability distribution as JSON.
 
 ## Installation
-
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
-cd <your-project-folder>
+git clone https://github.com/juicechi25/Soil-pollution-health-risk-prediction.git
+cd Soil-pollution-health-risk-prediction
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Install Git LFS and pull the model file
+
+This project uses Git LFS because `stack_model.pkl` is larger than GitHub's normal file size limit.
+
+```bash
+git lfs install
+git lfs pull
+```
+
+Make sure the required model files are in the project root:
+
+```text
+scaler.pkl
+label_encoder.pkl
+X_encoded_columns.pkl
+stack_model.pkl
+```
+
+### 3. Create and activate a virtual environment
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Install dependencies
+On Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+### 4. Install dependencies
 
 ```bash
 pip install flask pandas joblib scikit-learn
 ```
 
-### 4. Run the app
+### 5. Run the app
 
 ```bash
 python3 app.py
 ```
 
-### 5. Open in browser
+### 6. Open in browser
 
 ```text
 http://127.0.0.1:5000
 ```
 
+If `stack_model.pkl` is missing after cloning, run:
+
+```bash
+git lfs pull
+```
 ## Requirements
 
 Make sure the following files are present in your project folder before running the app:
