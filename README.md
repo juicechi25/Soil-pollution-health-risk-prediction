@@ -137,7 +137,7 @@ Example response:
 - Support more environmental variables and model options
 - Deploy the application online for public access
 
-## App Developer
+## Author
 
 **Tingyu (Judy) Chi**
 
